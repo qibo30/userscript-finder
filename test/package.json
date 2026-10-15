@@ -1,0 +1,11 @@
+{
+  "name": "userscript-finder-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run.mjs && node edge.mjs && node filters.mjs && node channel.mjs"
+  },
+  "dependencies": {
+    "jsdom": "^30.1.2"
+  }
+}
