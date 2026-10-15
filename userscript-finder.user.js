@@ -1,9 +1,13 @@
 // ==UserScript==
-// @name         ✨ 网站油猴脚本发现器 v6.1 · 多线路自由切换 ✨
+// @name         ✨ 网站油猴脚本发现器 v6.1.1 · 多线路自由切换 ✨
 // @namespace    http://tampermonkey.net/
-// @version      6.1.0
+// @version      6.1.1
 // @description  在当前网站一键查找可用的 GreasyFork 脚本。多线路自动回退（官方直连 / Jina 中转 / 自定义中转），右键图标可自由指定线路，网络失败与真的没有结果分开显示，带重试、诊断与按钮位置自愈。
 // @author       一只会飞的旺旺 (Optimized by AI)
+// @homepageURL  https://github.com/qibo30/userscript-finder
+// @supportURL   https://github.com/qibo30/userscript-finder/issues
+// @updateURL    https://ghproxy.net/https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js
+// @downloadURL  https://gh-proxy.com/https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js
 // @match        *://*/*
 // @noframes
 // @grant        GM_xmlhttpRequest
@@ -41,6 +45,11 @@
  * 11. 右键菜单新增「切换线路…」一行（右侧显示当前线路），点击才展开子菜单，
  *     里面列出 自动 / 官方直连 / Jina 中转 / 自定义中转，点哪条就用哪条，当前生效的打勾。
  *     手动指定后不再自动回退——用户点名要哪条就只用哪条，失败会明确报出来并提供「切回自动」。
+ *
+ * v6.1.1
+ * 12. 增加 @updateURL / @downloadURL / @homepageURL / @supportURL，
+ *     Tampermonkey 可自动检查更新。更新地址走国内镜像（raw.githubusercontent.com 国内直连不通），
+ *     镜像实测国内可直连且内容与官方 raw 一致。
  */
 
 (function () {

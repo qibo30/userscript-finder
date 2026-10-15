@@ -2,7 +2,7 @@
 
 在当前网站一键查找可用的 **GreasyFork** 脚本。针对「打开是空的」这一类网络问题做了多线路自动回退，国内网络下也能用。
 
-> 本仓库是 [GreasyFork #539863](https://greasyfork.org/scripts/539863) v5.2 的修复与增强版（v6.1）。
+> 本仓库是 [GreasyFork #539863](https://greasyfork.org/scripts/539863) v5.2 的修复与增强版（v6.1.1）。
 
 ## 问题背景
 
@@ -39,6 +39,21 @@ try {
 
 > `raw.githubusercontent.com` 在国内通常直连不通（需要代理）。上面两个镜像实测国内可直连，返回内容与官方 raw 完全一致。
 
+### 自动更新
+
+脚本已内置 `@updateURL` / `@downloadURL`，Tampermonkey 会定期检查新版本：
+
+- `@updateURL` 走 `ghproxy.net` 镜像（国内可直连）
+- `@downloadURL` 走 `gh-proxy.com` 镜像
+
+两个镜像都是同一条 raw 的转发，内容与 GitHub 官方完全一致（已验证 sha256 相同）。想改回官方地址，在 Tampermonkey 的脚本编辑页把这两行改掉即可。
+
+### 装不上 / 一直提示无法访问？
+
+1. 换另一个镜像地址重试（上面两个镜像轮流试）
+2. 在 Tampermonkey 里手动新建脚本，把 `userscript-finder.user.js` 的内容整段粘贴进去保存（不依赖网络）
+3. 检查 Tampermonkey 的「安全」设置里是否允许了 `@connect *`
+
 ## 使用
 
 | 操作 | 效果 |
@@ -71,7 +86,7 @@ try {
 
 > ⚠️ Jina 是第三方公共中转：内容会经过它，且有速率限制、可能随时失效。介意的话请在右键菜单里配置自己的中转前缀。
 
-## v5.2 → v6.1 修复清单
+## v5.2 → v6.1.1 修复清单
 
 | # | 问题 | 修复 |
 | --- | --- | --- |
@@ -85,6 +100,13 @@ try {
 | 8 | 用 `innerHTML` 拼接第三方标题/描述，存在 XSS 风险 | 全部走 `textContent` |
 | 9 | 广告位 `<li class="ad-entry">` 被解析成 `Untitled` 假条目 | 跳过广告位 |
 | 10 | — | 新增结果内搜索、评分/日安装量展示、30 分钟结果缓存、`Alt+F` |
+
+### v6.1.1
+
+| # | 变更 |
+| --- | --- |
+| 11 | 增加 `@updateURL` / `@downloadURL`（走国内镜像），Tampermonkey 可自动检查更新 |
+| 12 | 增加 `@homepageURL` / `@supportURL`，指向本仓库与 issue 页 |
 
 ## 测试
 
