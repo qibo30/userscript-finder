@@ -27,9 +27,17 @@ try {
 ## 安装
 
 1. 安装 [Tampermonkey](https://www.tampermonkey.net/)（篡改猴）
-2. 打开 [`userscript-finder.user.js`](./userscript-finder.user.js)，Tampermonkey 会自动弹出安装页
-   - 或直接访问 raw 地址：`https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js`
+2. 用 Tampermonkey 打开下面任意一个安装地址（国内网络请优先用镜像）：
+
+| 线路 | 安装地址 |
+| --- | --- |
+| GitHub 官方 raw | `https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js` |
+| **国内镜像 ①** | `https://ghproxy.net/https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js` |
+| **国内镜像 ②** | `https://gh-proxy.com/https://raw.githubusercontent.com/qibo30/userscript-finder/main/userscript-finder.user.js` |
+
 3. 任意网页右下角会出现 🔍 悬浮按钮，点击打开面板
+
+> `raw.githubusercontent.com` 在国内通常直连不通（需要代理）。上面两个镜像实测国内可直连，返回内容与官方 raw 完全一致。
 
 ## 使用
 
